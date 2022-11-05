@@ -1,25 +1,28 @@
 <?php
-$agil               = 5;
-$agil_kapasite      = 30;
-$toplam_kapasite    = $agil_kapasite  * $agil;
-$toplam_koyun       = 73;
-echo "Toplam Ağıl: $agil<br>Toplam Kapasite: $toplam_kapasite<br>Toplam Koyun: $toplam_koyun<br><br>";
-if($toplam_koyun <= $toplam_kapasite){//Koyun Sayısı Kapasiteden Az ve Eşit Olduğu Durum
-    for($i = $agil;$i>0;$i--){
-        if($toplam_koyun >=30){
-            echo $i.". Ağıl: $agil_kapasite Koyun<br>" ;
-            $toplam_koyun -= 30;
+$degerler = array(
+    "agil"  => 5,
+    "agil_kapasite" => 30,
+    "toplam_koyun" => 73
+);
+$toplam_kapasite    = $degerler["agil_kapasite"] * $degerler["agil"];
+echo "Toplam Ağıl: " . $degerler["agil"] . "<br>Toplam Kapasite: " . $toplam_kapasite
+ . "<br>Toplam Koyun: " . $degerler["toplam_koyun"] ."<br><br>";
+if($degerler["toplam_koyun"] <= $toplam_kapasite){//Koyun Sayısı Kapasiteden Az ve Eşit Olduğu Durum
+    for($i = $degerler["agil"];$i>0;$i--){
+        if($degerler["toplam_koyun"] >=$degerler["agil_kapasite"]){
+            echo $i.". Ağıl: " . $degerler["agil_kapasite"] . " Koyun<br>" ;
+            $degerler["toplam_koyun"] -= $degerler["agil_kapasite"];
         }else{
-            echo $i.". Ağıl: $toplam_koyun Koyun<br>";
-            $toplam_koyun = 0;
+            echo $i.". Ağıl: ".$degerler["toplam_koyun"]." Koyun<br>";
+            $degerler["toplam_koyun"] = 0;
         }
     }
 }else{//Koyun Sayısı Kapasiteden Fazla Olduğu Durum
-    for($i = $agil;$i>0;$i--){
-        echo $i.". Ağıl: $agil_kapasite Koyun<br>" ;
-        $toplam_koyun -= 30;
+    for($i = $degerler["agil"];$i>0;$i--){
+        echo $i.". Ağıl: ".$degerler["agil_kapasite"]." Koyun<br>" ;
+        $degerler["toplam_koyun"] -= $degerler["agil_kapasite"];
     }
-    echo "<br>Dışarıda Kalan: $toplam_koyun Koyun" ;
+    echo "<br>Dışarıda Kalan: ".$degerler["toplam_koyun"]." Koyun" ;
 }
 ?>
 
