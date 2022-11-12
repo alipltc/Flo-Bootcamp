@@ -14,10 +14,10 @@ session_start();
 <h3>Ürünler</h3>
 <?php
 //Dizi İçinde Tanımlanan Değişkenler
-$ürünler = array(
-    ["ürünad"  => "Ülker Çikolatalı Gofret 40 gr.","ürünfiyat" => 10],
-    ["ürünad"  => "Eti Damak Kare Çikolata 60 gr.","ürünfiyat" => 20],
-    ["ürünad"  => "Nestle Bitter Çikolata 50 gr.","ürünfiyat" => 20]
+$urunler = array(
+    ["urunad"  => "Ülker Çikolatalı Gofret 40 gr.","urunfiyat" => 10],
+    ["urunad"  => "Eti Damak Kare Çikolata 60 gr.","urunfiyat" => 20],
+    ["urunad"  => "Nestle Bitter Çikolata 50 gr.","urunfiyat" => 20]
 );
 ?>
 <!-- Ürünler Tablosu Başlangıç -->
@@ -29,12 +29,12 @@ $ürünler = array(
     <th>Ürün Fiyatı</th>
   </tr>
   <?php
-  foreach($ürünler as $ürün){
+  foreach($urunler as $urun){
   ?>
   <tr>
-    <td align="start"><?php echo $ürün["ürünad"] ?></td>
-    <td><?php echo $ürün["ürünfiyat"] ?> TL.</td>
-    <td><input type="number" name="ürün[]" value=0></td>
+    <td align="start"><?php echo $urun["urunad"] ?></td>
+    <td><?php echo $urun["urunfiyat"] ?> TL.</td>
+    <td><input type="number" name="urun[]" value=0></td>
   </tr> 
   <?php
   }
@@ -59,9 +59,9 @@ $ürünler = array(
     $count   = 0;
     foreach($sepetim as $sepet){
       if($sepet !=0){
-        echo "<tr><td align='start'>".$ürünler[$count]["ürünad"]."</td>";
+        echo "<tr><td align='start'>".$urunler[$count]["urunad"]."</td>";
         echo "<td>". $sepet ."</td>";
-        $toplam = $ürünler[$count]["ürünfiyat"] * $sepet;
+        $toplam = $urunler[$count]["urunfiyat"] * $sepet;
         echo "<td>$toplam</td></tr>";
         $geneltoplam = $geneltoplam + $toplam;
       }

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$gelenadet = $_POST["ürün"];
+$gelenadet = $_POST["urun"];
 $temizle   = $_POST["temizle"];
 //Temizle Butonu Çalıştıysa Temizleme İşlemi ve Session Test
 if($temizle != ""){

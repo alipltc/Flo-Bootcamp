@@ -6,8 +6,8 @@ function güvenlik($metin){
     return  $metin;
 }
 $gelenadet      = güvenlik($_POST["sayi"]);
-$gelenürün      = güvenlik($_GET["ürün"]);
-$gelenfiyat     = güvenlik($_GET["fiyat"]);
+$gelenurun      = güvenlik($_POST["urun"]);
+$gelenfiyat     = güvenlik($_POST["fiyat"]);
 $temizle        = güvenlik($_POST["temizle"]);
 //Temizle Butonu Çalıştıysa Temizleme İşlemi
 if($temizle != ""){
@@ -28,13 +28,13 @@ if($gelenadet == "" || $gelenadet == 0){
 //Gelen Adet ve Ürünlerin Fiyat Hesaplaması
 $toplam = $gelenadet * $gelenfiyat;
 $sepet = array(
-    "ürünad"  => $gelenürün,"adet" => $gelenadet,"toplam" =>$toplam
+    "urunad"  => $gelenurun,"adet" => $gelenadet,"toplam" =>$toplam
 );
 //Sepette Varolan Ürünlerin Güncellenmesi
 if(count($_SESSION["sepetim"]) !=0){
     $sayi = count($_SESSION["sepetim"])-1;
     for($sayi;$sayi>=0;$sayi--){
-        if($_SESSION["sepetim"][$sayi]["ürünad"] == $gelenürün){
+        if($_SESSION["sepetim"][$sayi]["urunad"] == $gelenurun){
             $_SESSION["sepetim"][$sayi]["adet"] += $gelenadet;
             $_SESSION["sepetim"][$sayi]["toplam"] += $toplam;
             echo "<script>

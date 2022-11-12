@@ -14,10 +14,10 @@ session_start();
 <h3>Ürünler</h3>
 <?php
 //Dizi İçinde Tanımlanan Değişkenler
-$ürünler = array(
-    ["ürünad"  => "Ülker Çikolatalı Gofret 40 gr.","ürünfiyat" => 10],
-    ["ürünad"  => "Eti Damak Kare Çikolata 60 gr.","ürünfiyat" => 20],
-    ["ürünad"  => "Nestle Bitter Çikolata 50 gr.","ürünfiyat" => 20]
+$urunler = array(
+    ["urunad"  => "Ülker Çikolatalı Gofret 40 gr.","urunfiyat" => 10],
+    ["urunad"  => "Eti Damak Kare Çikolata 60 gr.","urunfiyat" => 20],
+    ["urunad"  => "Nestle Bitter Çikolata 50 gr.","urunfiyat" => 20]
 );
 ?>
 <table align="center" width="50%">
@@ -28,14 +28,15 @@ $ürünler = array(
   </tr>
   <?php
     //Dizi Değişkenlerinin Tabloda Yazdırılması
-    $count = 0;
-    foreach($ürünler as $ürün){
-    echo "<tr><td align='start'>".$ürün["ürünad"]."</td>";
-    echo "<td>".$ürün["ürünfiyat"]." TL.</td>";
-    $ürünfiyat = $ürün["ürünfiyat"];
-    $ürünadi = $ürün["ürünad"];
-    echo "<td><form action='kontrol.php/?ürün=$ürünadi&fiyat=$ürünfiyat' method='POST'>
+    foreach($urunler as $urun){
+    echo "<tr><td align='start'>".$urun["urunad"]."</td>";
+    echo "<td>".$urun["urunfiyat"]." TL.</td>";
+    $urunfiyat = $urun["urunfiyat"];
+    $urunadi = $urun["urunad"];
+    echo "<td><form action='kontrol.php' method='POST'>
     <input type='number' name='sayi'>
+    <input type='hidden' name='urun' value='$urunadi'>
+    <input type='hidden' name='fiyat' value='$urunfiyat'>
     <input type='submit' class='square_btn' value='Sepete Ekle'></form>
     </td></tr>";
     }
@@ -54,7 +55,7 @@ $ürünler = array(
   if(isset($_SESSION["sepetim"])){
     $sepetim = $_SESSION["sepetim"];
     foreach($sepetim as $sepet){
-      echo "<tr><td align='start'>".$sepet["ürünad"]."</td>";
+      echo "<tr><td align='start'>".$sepet["urunad"]."</td>";
       echo "<td>". $sepet["adet"]."</td>";
       echo "<td>". $sepet["toplam"] ." TL</td></tr>";
       $geneltoplam = $geneltoplam + $sepet["toplam"];
