@@ -25,9 +25,9 @@ function tazeHesap($tur, $tazemi, $tutar){
     } elseif ($tur == "nane"){
         return $tutar * 20 / 100;
     } elseif ($tur == "fesleğen"){
-        return $tutar * 20 / 100;
+        return $tutar * 10 / 100;
     } elseif ($tur == "reyhan"){
-        return $tutar * 20 / 100;
+        return $tutar * 25 / 100;
     }
 }
 
