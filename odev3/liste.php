@@ -1,28 +1,22 @@
 <?php
-$baglan     = new PDO("mysql:host=localhost;dbname=odev3;charset=utf8","alipltc","12345678Wq");
+require_once 'baglan.php';
+require_once 'fonksiyonlar.php';
 $sorgu      = $baglan->prepare("SELECT * FROM kisiler");
 $sorgu->execute();
 $kisisayisi = $sorgu->rowCount();
 $kisiler    = $sorgu->fetchAll(PDO::FETCH_ASSOC);
-function TelefonBicimlendir($Deger){
-	$BoslukSil	=	trim($Deger);
-	$Blok1		=	substr($BoslukSil, 0, 4);
-	$Blok2		=	substr($BoslukSil, 4, 3);
-	$Blok3		=	substr($BoslukSil, 7, 2);
-	$Blok4		=	substr($BoslukSil, 9, 2);
-	$Sonuc	    =	$Blok1 . " " . $Blok2 . " " . $Blok3 . " " . $Blok4;
-	return $Sonuc;
-}
+$sorgu->closeCursor(); unset($sorgu);
 
-if(isset($_GET["id"])){
+if (isset($_GET["id"])){//Silme işlemi
     $gelenid    = $_GET["id"];
     $sorgu      = $baglan->prepare("DELETE FROM kisiler WHERE id=$gelenid");
     $sorgu->execute();
     $kontrol    = $sorgu->rowCount();
-    if($kontrol>0){
+    $sorgu->closeCursor(); unset($sorgu);
+    if ( $kontrol>0 ){
         header("Location:liste.php");
         exit();
-    }else{
+    } else {
         echo "İşlem Başarısız";
         exit();
     }
@@ -51,7 +45,7 @@ if(isset($_GET["id"])){
             </thead>
             <tbody>
                 <?php
-                    foreach($kisiler as $kisi){
+                    foreach ($kisiler as $kisi){
                         $telefon = TelefonBicimlendir($kisi["telefon"]);
                         echo "<tr><td>$kisi[adsoyad]</td>
                         <td>$telefon</td>

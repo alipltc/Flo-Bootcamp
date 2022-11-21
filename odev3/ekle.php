@@ -1,24 +1,14 @@
 <?php
-function Guvenlik($Deger){
-	$BoslukSil		=	trim($Deger);
-	$TaglariTemizle	=	strip_tags($BoslukSil);
-	$Sonuc			=	htmlspecialchars($TaglariTemizle, ENT_QUOTES);
-	return $Sonuc;
-}
-function SadeceRakamlarAl($Deger){
-	$islem	=	preg_replace("/[^0-9]/","",$Deger);
-	$sonuc 	=	$islem;
-	return $sonuc;
-}
-$baglan = new PDO("mysql:host=localhost;dbname=odev3;charset=utf8","alipltc","12345678Wq");
-
+require_once 'baglan.php';
+require_once 'fonksiyonlar.php';
 $adsoyad = Guvenlik($_POST["adsoyad"]);
 $telefon = Guvenlik(SadeceRakamlarAl($_POST["telefon"]));
 
-if(($adsoyad !="") and ($telefon !="")){
+if (($adsoyad !="") and ($telefon !="")){
     $sorgu		= $baglan->prepare("INSERT INTO kisiler (adsoyad,telefon) values(?,?)");
     $sorgu->execute([$adsoyad,$telefon]);
 	$kontrol 	= $sorgu->rowCount();
+    $sorgu->closeCursor(); unset($sorgu);
 	if($kontrol>0){
         header("Location:liste.php");
 		exit();
@@ -26,7 +16,7 @@ if(($adsoyad !="") and ($telefon !="")){
         echo "İşlem Başarısız";
 		exit();
     }
-}else{
+} else {
     header("Location: index.php");
 	exit();
 }
