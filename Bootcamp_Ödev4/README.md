@@ -1,4 +1,4 @@
 ## MySQL ve Class Kullanımı
 ### Class Kullanarak TC Kimlik Kontrolü
 
-![odev4](https://user-images.githubusercontent.com/66695214/203644161-ef2b06e7-e917-43b2-b863-ee788176e11e.gif)
+![deneme](https://user-images.githubusercontent.com/66695214/203645074-e5f0437f-58ad-46a7-b696-df8409a1036b.gif)
