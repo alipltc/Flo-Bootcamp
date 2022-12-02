@@ -14,6 +14,6 @@
 - Loglama Sistemi
 - Dil Seçeneği
 <br>
-### Login
+### Login İşlemi
 
 ### Müşteri Ekleme, Güncelleme, Silme, Listeleme
