@@ -1,6 +1,6 @@
 ## Flo Bootcamp Bitirme Projesi (CRM)
-### Proje Açıklaması
-- Yetkili Girişi
+### Proje Detayı
+- Yetkili Girişi <sub>(mail=alipltc@hotmail.com | şifre=1234)(mail=msbatal@gmail.com | şifre=1234)</sub>
 - Müşteri Ekleme,Silme,Güncelleme,Listeleme
 - Müşteri Tablosu Sayfalama
 - Müşteri Tabloda Arama
