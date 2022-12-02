@@ -17,3 +17,16 @@
 ### Login İşlemi
 
 ### Müşteri Ekleme, Güncelleme, Silme, Listeleme
+
+### CVS ve PDF Kaydetme
+
+### Tabloda Arama ve Sayfalama
+
+### Mail Gönderme
+
+### Diğer Sayfalar ve Dil Seçeneği
+
+### Proje Yolu ve Veritabanı
+
+
+
