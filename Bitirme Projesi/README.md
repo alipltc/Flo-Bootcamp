@@ -13,7 +13,7 @@
 - PDF Formatında Çıktı Alma
 - Loglama Sistemi
 - Dil Seçeneği
-<br>
+
 ### Login İşlemi
 
 ### Müşteri Ekleme, Güncelleme, Silme, Listeleme
